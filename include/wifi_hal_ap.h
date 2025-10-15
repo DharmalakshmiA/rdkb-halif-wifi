@@ -2174,7 +2174,7 @@ typedef INT (* wifi_receivedDataFrame_callback)(INT apIndex, mac_address_t sta_m
  *
  * @returns The status of the operation.
  */
-typedef INT (* wifi_receivedMgmtFrame_callback)(INT apIndex, UCHAR *sta_mac, UCHAR *frame, UINT len, wifi_mgmtFrameType_t type, wifi_direction_t dir, INT sig_dbm, INT phy_rate, unsigned int recv_freq);
+typedef INT (* wifi_receivedMgmtFrame_callback)(INT apIndex, UCHAR *sta_mac, UCHAR *frame, UINT len, wifi_mgmtFrameType_t type, wifi_direction_t dir, unsigned int recv_freq);
 
 
 /**
