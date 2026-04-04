@@ -2435,6 +2435,13 @@ typedef struct _wifi_GASConfiguration_t
     UINT QueryResponseLengthLimit; /**< Query response length limit in bytes. */
 } __attribute__((packed)) wifi_GASConfiguration_t;
 
+typedef struct _wifi_RogueConfig_t
+{
+    bool rogue_ap_enable;
+    uint32_t rogue_ap_freq;
+}__attribute__((packed)) wifi_RogueConfig_t;
+
+
 /**
  * @brief Applies GAS configuration.
  *
