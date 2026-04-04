@@ -2441,7 +2441,7 @@ typedef struct _wifi_RogueConfig_t
     UINT rogue_ap_freq;
 }__attribute__((packed)) wifi_RogueConfig_t;
 
-
+wifi_RogueConfig_t *get_rogueap_obj(void);
 /**
  * @brief Applies GAS configuration.
  *
