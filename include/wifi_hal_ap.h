@@ -2437,8 +2437,8 @@ typedef struct _wifi_GASConfiguration_t
 
 typedef struct _wifi_RogueConfig_t
 {
-    bool rogue_ap_enable;
-    uint32_t rogue_ap_freq;
+    BOOL rogue_ap_enable;
+    UINT rogue_ap_freq;
 }__attribute__((packed)) wifi_RogueConfig_t;
 
 
