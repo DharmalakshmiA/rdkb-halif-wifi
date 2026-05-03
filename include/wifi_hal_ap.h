@@ -2442,6 +2442,34 @@ typedef struct _wifi_RogueConfig_t
 }__attribute__((packed)) wifi_RogueConfig_t;
 
 wifi_RogueConfig_t *get_rogueap_obj(void);
+
+/* ================================================================
+ *  Known AP (RogueGW) HAL storage
+ *  One entry per slot per VAP. Mirrored from OneWifi on every
+ *  X_RDK_KnownGW_ApplySettings call.
+ * ================================================================ */
+#define HAL_MAX_KNOWN_APS   5
+
+typedef struct {
+    mac_address_t mac;
+    bool          valid;
+} hal_known_ap_entry_t;
+
+typedef struct {
+    hal_known_ap_entry_t table[HAL_MAX_KNOWN_APS];
+    unsigned int         count;     /* number of valid entries */
+} hal_known_ap_list_t;
+
+/* Set the full known-AP list for one VAP.
+ * apIndex : 0-based VAP index (vap_index from OneWifi)
+ * list    : pointer to populated hal_known_ap_list_t
+ * Returns  RETURN_OK / RETURN_ERR
+ */
+INT wifi_hal_set_known_aps(INT apIndex, const hal_known_ap_list_t *list);
+
+/* Retrieve the stored list (for scan-result comparison). */
+INT wifi_hal_get_known_aps(INT apIndex, hal_known_ap_list_t *list);
+
 /**
  * @brief Applies GAS configuration.
  *
