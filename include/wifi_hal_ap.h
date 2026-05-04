@@ -2452,7 +2452,7 @@ wifi_RogueConfig_t *get_rogueap_obj(void);
 
 typedef struct {
     mac_address_t mac;
-    bool          valid;
+    BOOL          valid;
 } hal_known_ap_entry_t;
 
 typedef struct {
