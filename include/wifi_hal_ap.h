@@ -2440,6 +2440,7 @@ typedef struct _wifi_RogueConfig_t
 {
     BOOL rogue_ap_enable;
     UINT rogue_ap_freq;
+    BOOL known_ap_enable;
 }__attribute__((packed)) wifi_RogueConfig_t;
 
 wifi_RogueConfig_t *get_rogueap_obj(void);
