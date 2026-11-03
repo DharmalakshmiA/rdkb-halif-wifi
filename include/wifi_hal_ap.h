@@ -3116,6 +3116,21 @@ typedef struct
 } __attribute__((packed)) wifi_interworking_t;
 
 /**
+ * @brief Per-radio interworking payload (shared heavy members).
+ *
+ * The large ANQP/Passpoint/RoamingConsortium data is identical for every
+ * interworking-enabled VAP on a radio, so it is stored once per radio
+ * instead of once per VAP. The small per-VAP 802.11u element
+ * (wifi_InterworkingElement_t) remains in wifi_front_haul_bss_t.
+ */
+typedef struct
+{
+    wifi_roamingConsortiumElement_t roamingConsortium; /**< Roaming consortium element. */
+    wifi_anqp_settings_t anqp;        /**< ANQP settings. */
+    wifi_passpoint_settings_t passpoint; /**< Passpoint settings. */
+} __attribute__((packed)) wifi_radio_interworking_t;
+
+/**
  * @brief Pre-association control settings.
  */
 typedef struct
@@ -3259,7 +3274,7 @@ typedef struct {
   BOOL vapStatsEnable;      /**< Whether VAP statistics are enabled. This field should not be implemented in the HAL. */
 
   wifi_vap_security_t security;    /**< Security settings. */
-  wifi_interworking_t interworking; /**< Interworking settings. */
+  wifi_InterworkingElement_t interworking; /**< Interworking 802.11u element. Heavy ANQP/Passpoint payload moved per-radio (wifi_radio_interworking_t). */
   wifi_preassoc_control_t preassoc;  /**< Pre-association control settings. */
   wifi_postassoc_control_t postassoc; /**< Post-association control settings. */
   BOOL mac_filter_enable;           /**< Whether MAC filtering is enabled. */
