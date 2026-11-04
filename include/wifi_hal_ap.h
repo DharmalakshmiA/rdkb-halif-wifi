@@ -2026,7 +2026,7 @@ typedef struct
     UCHAR venueType;             /**< Venue type. */
     BOOL hessOptionPresent;      /**< Indicates whether Hotspot 2.0 Enhanced Security (HESS) information is present. */
     mac_addr_str_t hessid;       /**< HESSID. Optional; use empty string to indicate no value provided. */
-} wifi_InterworkingElement_t;
+} __attribute__((packed)) wifi_InterworkingElement_t;
 
 /** @} */  //END OF GROUP WIFI_HAL_TYPES
 
